@@ -1,46 +1,68 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Task List</h1>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand">
+          <div class="logo">TF</div>
+          <div class="brand-text">
+            <h1>TaskFlow</h1>
+            <p>Review every task with confidence.</p>
+          </div>
+        </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="add-task.html">Add Task</a>
-      <a href="task-detail.html">Task Detail</a>
-      <a href="about.html">About</a>
-    </nav>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="add-task.html">Add Task</a>
+          <a href="task-detail.html">Task Detail</a>
+          <a href="about.html">About</a>
+        </nav>
+      </header>
 
-    <br />
+      <main class="page-content">
+        <h1 class="section-title">Task List</h1>
 
-    <button>All</button>
-    <button>Pending</button>
-    <button>Completed</button>
+        <div class="button-group" style="margin-bottom:20px;">
+          <button class="button button-primary">All</button>
+          <button class="button button-secondary">Pending</button>
+          <button class="button button-secondary">Completed</button>
+        </div>
 
-    <br /><br />
+        <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Assignment</td>
+                <td>20 June 2026</td>
+                <td>High</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Project Report</td>
+                <td>25 June 2026</td>
+                <td>Medium</td>
+                <td><span class="status-badge status-completed">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
 
-    <table border="1">
-      <tr>
-        <th>Title</th>
-        <th>Due Date</th>
-        <th>Priority</th>
-        <th>Status</th>
-      </tr>
-      <tr>
-        <td>Assignment</td>
-        <td>20 June 2026</td>
-        <td>High</td>
-        <td>Pending</td>
-      </tr>
-      <tr>
-        <td>Project Report</td>
-        <td>25 June 2026</td>
-        <td>Medium</td>
-        <td>Completed</td>
-      </tr>
-    </table>
+      <footer class="site-footer">TaskFlow © 2026 • Keep your backlog bright and easy.</footer>
+    </div>
   </body>
 </html>
