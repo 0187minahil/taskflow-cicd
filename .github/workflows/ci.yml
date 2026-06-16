@@ -1,30 +1,30 @@
-name: CI Pipeline
+name: CI
 
 on:
-pull_request:
-branches:
-- develop
+  pull_request:
+    branches:
+      - develop
 
 jobs:
-build-and-push:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-```
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-  - name: Login to Docker Hub
-    uses: docker/login-action@v3
-    with:
-      username: ${{ secrets.DOCKERHUB_USERNAME }}
-      password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  - name: Build Docker Image
-    run: |
-      docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest .
+      - name: Build Image
+        run: docker build -t taskflow-cicd .
 
-  - name: Push Docker Image
-    run: |
-      docker push ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest
-```
+      - name: Tag Image
+        run: |
+          docker tag taskflow-cicd ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest
+
+      - name: Push Image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest
